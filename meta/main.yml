@@ -1,0 +1,24 @@
+---
+galaxy_info:
+  role_name: eset_efs
+  namespace: teamsalvador
+  author: Bas Meijer
+  description: Install ESET Server Security
+
+  license: MIT
+
+  min_ansible_version: "2.13.0"
+
+  platforms:
+    - name: EL
+      versions:
+        - "all"
+    - name: Debian
+      versions:
+        - "all"
+  galaxy_tags:
+    - system
+    - security
+    - hardening
+
+dependencies: []

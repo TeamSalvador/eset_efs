@@ -1,0 +1,4 @@
+---
+# present and absent are values for desired_state
+- name: Desired state configuration
+  ansible.builtin.include_tasks: "{{ desired_state }}.yml"

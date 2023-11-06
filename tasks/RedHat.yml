@@ -1,0 +1,20 @@
+---
+- name: RedHat install
+  when: "'eea' not in ansible_facts.packages"
+  block:
+    - name: Find RPM package to install
+      ansible.builtin.find:
+        paths: "{{ efs_tmp_dir }}"
+        patterns: "*.rpm"
+      register: efs_redhat
+    - name: Install RPM package
+      become: true
+      ansible.builtin.yum:
+        name:
+          - "{{ efs_redhat.files[0].path }}"
+        state: present
+        disable_gpg_check: true
+    - name: Cleanup
+      ansible.builtin.file:
+        path: "{{ efs_redhat.files[0].path }}"
+        state: absent

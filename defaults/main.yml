@@ -1,0 +1,7 @@
+---
+desired_state: present
+# ESET Server Security aka ESET File Security
+efs_installer: efs.x86_64.bin
+efs_url: "https://download.eset.com/com/eset/apps/business/efs/linux/latest/efs.x86_64.bin"
+efs_download_dir: ./files
+efs_tmp_dir: /var/tmp
