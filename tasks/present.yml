@@ -22,7 +22,7 @@
     mode: '0755'
 
 - name: Transfer package
-  when: "'eea' not in ansible_facts.packages"
+  when: "'efs' not in ansible_facts.packages"
   block:
     - name: Copy product bin package
       ansible.builtin.copy:

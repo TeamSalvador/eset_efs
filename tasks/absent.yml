@@ -3,7 +3,7 @@
   ansible.builtin.package_facts:
 
 - name: Ensure package is absent
-  when: "'eea' in ansible_facts.packages"
+  when: "'efs' in ansible_facts.packages"
   ansible.builtin.package:
-    name: eea
+    name: efs
     state: absent

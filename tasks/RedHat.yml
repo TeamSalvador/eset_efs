@@ -1,6 +1,6 @@
 ---
 - name: RedHat install
-  when: "'eea' not in ansible_facts.packages"
+  when: "'efs' not in ansible_facts.packages"
   block:
     - name: Find RPM package to install
       ansible.builtin.find:

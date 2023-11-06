@@ -5,4 +5,4 @@
 - name: Verify package is installed
   ansible.builtin.assert:
     that:
-      - "'eea' in ansible_facts.packages"
+      - "'efs' in ansible_facts.packages"
