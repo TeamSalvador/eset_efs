@@ -9,7 +9,7 @@
       register: efs_redhat
     - name: Install RPM package
       become: true
-      ansible.builtin.yum:
+      ansible.builtin.dnf:
         name:
           - "{{ efs_redhat.files[0].path }}"
         state: present

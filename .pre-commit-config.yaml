@@ -4,20 +4,51 @@ default_language_version:
 exclude: .venv
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v3.4.0
+    rev: v6.0.0
     hooks:
-      - id: check-json
+      - id: check-added-large-files
+      - id: check-case-conflict
       - id: check-executables-have-shebangs
+      - id: check-json
+      - id: check-merge-conflict
       - id: detect-private-key
       - id: end-of-file-fixer
+      - id: forbid-new-submodules
+      - id: requirements-txt-fixer
       - id: trailing-whitespace
-      - id: check-added-large-files
 
   - repo: https://github.com/adrienverge/yamllint
-    rev: v1.27.0
+    rev: v1.37.1
     hooks:
       - id: yamllint
         args: [-c=.yamllint]
+
+  - repo: https://github.com/jumanjihouse/pre-commit-hooks
+    rev: 3.0.0  # or specific git tag
+    hooks:
+      - id: forbid-binary
+        exclude: >
+          (?x)^(
+            screenshot.png
+          )$
+      - id: git-check
+      - id: script-must-have-extension
+      - id: shellcheck
+        args: ['--severity=error']
+
+  - repo: https://github.com/ansible/ansible-lint
+    rev: v25.12.2
+    hooks:
+      - id: ansible-lint
+        name: Ansible Lint
+        language_version: python3.12
+        additional_dependencies:
+          - ansible-core==2.17.14
+        verbose: false
+        # do not pass files to ansible-lint, see:
+        # https://github.com/ansible/ansible-lint/issues/611
+        pass_filenames: false
+        always_run: true
 
   - repo: https://github.com/robertdebock/pre-commit
     rev: v1.2.2
@@ -25,8 +56,3 @@ repos:
       - id: ansible_role_find_unused_variable
       - id: ansible_role_find_empty_files
       - id: ansible_role_find_empty_directories
-
-  - repo: https://github.com/jumanjihouse/pre-commit-hooks
-    rev: 2.1.5  # or specific git tag
-    hooks:
-      - id: shellcheck
