@@ -1,4 +1,4 @@
 # these python extensions are for testing
-ansible-lint==6.4.0
+ansible-lint
 pre-commit
-yamllint==1.28.0
+yamllint
